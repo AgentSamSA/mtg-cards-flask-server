@@ -14,7 +14,7 @@ You can use `python server/test_client.py` inside the root directory to test som
 
 ## Endpoints
 `/card/{card}`  
-Returns an json object for a *Magic: The Gathering* card with the specified name from Scryfall's own API.
+Returns a json object for a *Magic: The Gathering* card with the specified name from Scryfall's API.
 
 `/cards`  
 Returns a list of json objects for every *Magic: The Gathering* card. WARNING: maybe be slow due to the size of the dataset (>500MB).
