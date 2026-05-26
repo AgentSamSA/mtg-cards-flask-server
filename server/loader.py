@@ -1,7 +1,9 @@
 from pathlib import Path
 import ijson
 
-DATA_PATH = Path('data/default-cards.json')
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / 'data'
+DATA_PATH = DATA_DIR / 'default-cards.json'
 
 # Ensure raw dataset exists, otherwise call download function
 def ensure_dataset():
@@ -9,7 +11,7 @@ def ensure_dataset():
         print('[loader] Dataset not found. Downloading...')
 
         try:
-            from I7.server.download import download_data
+            from server.download import download_data
 
             download_data()
         except Exception as e:

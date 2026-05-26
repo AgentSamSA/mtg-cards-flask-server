@@ -1,6 +1,13 @@
 # Transform each card into improved JSON structure
 def transform_card(card):
 
+    legalities = card.get('legalities', {})
+    
+    legal_formats = [
+        fmt for fmt, status in legalities.items()
+        if status == 'legal'
+    ]
+
     return {
         'cardInfo': {
             'cardId': card.get('id'),
@@ -21,7 +28,7 @@ def transform_card(card):
         'gameplayInfo': {
             'colors': card.get('colors', []),
             'keywords': card.get('keywords', []),
-            'legalities': card.get('legalities', {}),
+            'legalities': legal_formats,
         },
         'metadata': {'schemaVersion': '1.0', 'source': 'Scryfall API'},
         'accessControl': {'accessLevel': 'read-only'},
